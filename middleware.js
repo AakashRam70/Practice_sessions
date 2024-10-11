@@ -12,13 +12,15 @@ function verification(req, res, next) {
     }
 };
 
-app.get("/ride1", verification, function (req, res) {
+app.use(verification);
+
+app.get("/ride1", function (req, res) {
     res.json({
         msg: "You Have Done Ride1"
     })
 });
 
-app.get("/ride2", verification, function (req, res) {
+app.get("/ride2", function (req, res) {
     res.json({
         msg: "You Have Done Ride2"
     })
