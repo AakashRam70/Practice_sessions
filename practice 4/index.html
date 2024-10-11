@@ -5,10 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script>
+        async function populateDiv() {
+            const a = document.getElementById("number1").value;
+            const b = document.getElementById("number2").value;
+            const c = document.getElementById("number2").value;
+
+            const response = await fetch("https://sum-server.100xdevs.com/sum?a=" + a + "&b=" + b + "&c=" + c);
+            const solve = await response.text();
+            document.getElementById("ans").innerHTML = solve;
+        }
+    </script>
 </head>
 
 <body>
-
+    <input id="number1" type="text" placeholder="Principle"><br />
+    <input id="number2" type="text" placeholder="Rate"><br />
+    <input id="number3" type="text" placeholder="Years"><br />
+    <button onclick="populateDiv()">Calculate Sum</button><br />
+    <div id="ans"></div>
 </body>
 
 </html>
