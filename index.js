@@ -2,14 +2,15 @@ const express = require("express");
 const app = express();
 
 app.get("/intrest", function (req, res) {
-    const P = req.query.principle;
-    const R = req.query.rate;
-    const N = req.query.time;
-    const final = parseInt(P) * parseInt(R) * parseInt(N);
+    const principal = parseInt(req.query.principal);
+    const rate = parseInt(req.query.rate);
+    const time = parseInt(req.query.time);
 
-    res.text({
-        total: final
+    const result = (principal * rate * time) / 100;
+    res.send({
+        Final: result
     })
+
 })
 
 app.listen(4040);
